@@ -11,8 +11,27 @@ import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
-
+@Configuration
 public class SwaggerConfig {
+	
+	@Bean
+    public OpenAPI springBlogPessoalOpenAPI() {
+        return new OpenAPI()
+                .info(new Info()
+                    .title("Projeto Blog Pessoal")
+                    .description("Projeto Blog Pessoal - Generation Brasil")
+                    .version("v0.0.1")
+                .license(new License()
+                    .name("Generation Brasil")
+                    .url("https://brazil.generation.org/"))
+                .contact(new Contact()
+                    .name("Thiago Ferreira")
+                    .url("https://github.com/ThiagoAndrill")
+                    .email("thf_91@hotmail.com")))
+                .externalDocs(new ExternalDocumentation()
+                    .description("Github")
+                    .url("https://github.com/ThiagoAndrill"));
+    }
 	
 	@Bean
 	public OpenApiCustomizer customerGlobalHeaderOpenApiCustomiser() {
